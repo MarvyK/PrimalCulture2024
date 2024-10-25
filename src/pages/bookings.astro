@@ -1,0 +1,86 @@
+---
+import MainLayout from "../layouts/Layout.astro";
+import "../css/bookings.css";
+---
+
+<MainLayout>
+  <div class="container">
+    <div class="booking-container">
+      <h1 style="color: #1f2937; margin-bottom: 20px;">Tattoo Studio Booking</h1>
+
+      <div class="main-content">
+        <!-- Booking Form Section -->
+        <section class="booking-form-section">
+          <form id="bookingForm">
+            <!-- Add Web3Forms access key -->
+            <input type="hidden" name="access_key" value="312b6a55-bd20-4427-967f-c13d1e7d6877" />
+            <!-- Add custom subject -->
+            <input type="hidden" name="subject" value="New Tattoo Booking Request" />
+            <!-- Add success page URL -->
+            <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+
+            <div class="form-group">
+              <label>Name:</label>
+              <input type="text" name="name" id="name" required />
+            </div>
+
+            <div class="form-group">
+              <label>Email:</label>
+              <input type="email" name="email" id="email" required />
+            </div>
+
+            <div class="form-group">
+              <label>Artist:</label>
+              <select name="artist" id="artist" required>
+                <option value="">Select an artist</option>
+                <option value="artist1">John Doe</option>
+                <option value="artist2">Jane Smith</option>
+                <option value="artist3">Mike Johnson</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Date:</label>
+              <input type="date" name="date" id="date" required />
+            </div>
+
+            <div class="form-group">
+              <label>Time:</label>
+              <select name="time" id="time" required>
+                <option value="">Select a time</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Tattoo Description:</label>
+              <textarea name="description" id="description" required rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Size (approximate):</label>
+              <select name="size" id="size" required>
+                <option value="">Select size</option>
+                <option value="small">Small (2-3 inches)</option>
+                <option value="medium">Medium (4-6 inches)</option>
+                <option value="large">Large (7-10 inches)</option>
+                <option value="extra-large">Extra Large (10+ inches)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="submit-button" id="submitButton">
+              Book Appointment
+              <span id="loadingSpinner" class="loading-spinner" style="display: none;"></span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Bookings Display Section -->
+        <section class="bookings-display-section">
+          <h2 style="color: #374151; margin-bottom: 20px;">Current Bookings</h2>
+          <div id="bookingsList"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="/src/js/booking.js"></script>
+</MainLayout>

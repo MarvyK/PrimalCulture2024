@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Primal Culture Tattoo Studio - 2024 (Using Astro)
 
 ```sh
 npm create astro@latest -- --template basics
@@ -52,3 +52,4 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Thank you Kevin Powell [https://github.com/kevin-powell](https://github.com/kevin-powell)! | [https://www.youtube.com/watch?v=o7iQAF2EvUU](https://www.youtube.com/watch?v=o7iQAF2EvUU)
