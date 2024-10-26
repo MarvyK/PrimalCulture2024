@@ -26,52 +26,10 @@
 		/* Defined Heights */
 		--header-height: 130px;
     }
-/* ODD BALLS */
-.secondary-color{
-	color: var(--secondary-color);
-}
-.second-bg {
-	background-color: var(--secondbg-color);
-}
-.left {
-	text-align: left!important;
-	font-size: 1.5rem;
-}
-.border-right {
-	border-right: 1px solid var(--secondbg-color);
-	margin-top: 40px;
-}
-.border-right-second  {
-	border-right: 1px solid rgba(255, 255, 255, 0.2);
-	margin: 40px 0 20px 0;
-}
-.button-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-	text-align: center;	
-}
-.red-button {
-	width: 80%;
-	margin-top: 0px;
-	padding: 10px;
-	background-color: var(--redred);
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	font-family: var(--font-family);
-	font-size: 1.5rem;
-}
-.red-line {
-	border-top: 0.5px solid var(--redred); height: 1px;
-	margin: 40px 0 20px 0;
-}
 
     body {
         font-family: var(--font-family);
-        font-size: var(--font-size);
+        font-size: 1.25rem;
         color: var(--primary-color);
         background-color: var(--bg-color);
 		overflow-x: hidden;
@@ -397,6 +355,49 @@
   padding: 20px; /* Add padding for spacing within columns */
 	  }
 	  .contact-column .fa {transform: scale(0.75); color: var(--redred);}
+
+/* ODD BALLS */
+.secondary-color{
+	color: var(--secondary-color);
+}
+.second-bg {
+	background-color: var(--secondbg-color);
+}
+.left {
+	text-align: left!important;
+	font-size: 1.5rem;
+}
+.border-right {
+	border-right: 1px solid var(--secondbg-color);
+	margin-top: 40px;
+}
+.border-right-second  {
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+	margin: 40px 0 20px 0;
+}
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+	text-align: center;	
+}
+.red-button {
+	width: 80%;
+	margin-top: 0px;
+	padding: 10px;
+	background-color: var(--redred);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: var(--font-family);
+	font-size: 1.5rem;
+}
+.red-line {
+	border-top: 0.5px solid var(--redred); height: 1px;
+	margin: 40px 0 20px 0;
+}	  
 	@media (max-width: 768px) {
 		.container, .contact-container {
 			flex-direction: column;
