@@ -398,6 +398,60 @@
 	border-top: 0.5px solid var(--redred); height: 1px;
 	margin: 40px 0 20px 0;
 }	  
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    margin: auto;
+    margin-top: calc(var(--header-height) + 50px);
+    display: block;
+    width: auto;
+    max-width: 700px;
+    z-index: 11;
+}
+
+.modal-caption {
+    margin: auto;
+	text-align: right;    
+    width: 100%;
+    max-width: 700px; /* Match the width of the image */
+    display: block; /* This helps maintain the same width as the image */
+	background-color: rgba(0, 0, 0, 1);
+	
+}
+.modal-image {
+    max-width: 100%; /* Ensure the image doesn't exceed the modal width */
+    height: auto; /* Maintain aspect ratio */
+}
+.close {
+    cursor: pointer;
+    color: #f44336;
+    font-size: 5rem;
+    font-weight: bold;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.modal-backdrop {
+    position: fixed;
+    z-index: 9; /* Lower z-index */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 	@media (max-width: 768px) {
 		.container, .contact-container {
 			flex-direction: column;
@@ -449,5 +503,9 @@
 		}
 		.map-box iframe {
 			height: 250px;
+		}
+		.modal-image {
+			/* Adjust the maximum width for smaller screens */
+			max-width: 90%;
 		}
 	}
