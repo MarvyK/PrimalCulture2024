@@ -67,6 +67,22 @@
 		width: 100%;
 		margin-top: calc(var(--header-height)/3);
 	}
+	.block-container{
+		width: 100%;
+		/* max-width: 80%;	 */
+		min-height: 60vh;
+		margin: 40px 0px 20px 80px;
+		padding: 20px;
+		text-align: left;
+		font-size: 3rem;
+		
+	}
+	.primal-bg {
+		background: url(/src/images/PrimalCultureStudio.png);
+		background-size: cover;
+		background-position: center center;
+		
+	  }
 	
 	.column {		
 		flex: 0 0 48%;
@@ -77,6 +93,7 @@
 		text-align: center;
 		
 	}
+	
 	.column2{		
 		flex: 1;
 		display: flex;
@@ -98,6 +115,13 @@
 		max-height: 40vh;
 		margin: 50px 0;
 		border-radius: 50%;
+	}
+	.eighty {
+		max-width: 100%;
+		height: auto;
+		max-height: 80vh;
+		margin: 10px 0;
+		border-radius: 10%;
 	}
 	img .one100Image {
 		max-width: 100%;
@@ -451,7 +475,16 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
 }
-
+ol>li {
+	padding: 5px 20px;
+}
+.video {margin-top: 15%;}
+.flip-image {
+	display:none;
+}
+.flip-image.active {
+    display:inline;
+}
 	@media (max-width: 768px) {
 		.container, .contact-container {
 			flex-direction: column;
@@ -508,4 +541,5 @@
 			/* Adjust the maximum width for smaller screens */
 			max-width: 90%;
 		}
+		.video {margin-top: 0%;}
 	}
