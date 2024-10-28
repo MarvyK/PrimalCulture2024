@@ -1,15 +1,30 @@
 ---
-// You can add any necessary imports or props here
+const baseUrl = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/tattoocare', label: 'Tattoo Care' },
+  { href: '/aboutus', label: 'About Us' },
+  { href: '/community', label: 'Community Outreach' },
+  { href: '/bookings', label: 'Bookings' },
+  { href: '/mechandise', label: 'Merchandise & Other' },
+  { href: '/contact', label: 'Contact' }
+];
 ---
 <nav class="menu">
     <ul>
-      <li><a href="../">Home</a></li>
-      <li><a href="../tattoocare">Tattoo Care</a></li>
-      <li><a href="../aboutus">About Us</a></li>
-      <li><a href="../community">Community Outreach</a></li>
-      <li><a href="../bookings">Bookings</a></li>
-      <li><a href="../mechandise">Merchandise &amp; Other</a></li>
-      <li><a href="../contact">Contact</a></li>
+      {links.map(link => (
+        <li>
+          <a 
+            href={`${baseUrl}${link.href}`}
+            class:list={[
+              { active: currentPath === `${baseUrl}${link.href}` }
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
     </ul>
-  </nav>
+</nav>
