@@ -75,11 +75,10 @@
 		width: 100%;
 		/* max-width: 80%;	 */
 		min-height: 60vh;
-		margin: 40px 0px 20px 80px;
+		margin: 40px 80px 20px 80px;
 		padding: 20px;
 		text-align: left;
-		font-size: 3rem;
-		
+		font-size: 3rem;		
 	}
 	.primal-bg {
 		background: url(/src/images/PrimalCultureStudio.png);
@@ -499,8 +498,10 @@ ol>li {
 			flex-direction: column;
 			margin-top: 0;
 		}
+		
 		.column, .contact-column {
 			width: 100%;
+			margin-top: calc(var(--header-height)/3);
 		}
 		.column-content {
 			max-width: 100%;
@@ -515,6 +516,15 @@ ol>li {
 			margin: 0 auto; /* Center the container horizontally */
 	
 		  }
+		  .block-container{
+			width: 100%;
+			/* max-width: 80%;	 */
+			min-height: 60vh;
+			margin: 40px 0px 20px 0px;
+			padding: 20px;
+			text-align: left;
+			font-size: 3rem;		
+		}
 		.logo img, .logo Image {
 			max-width: 25%;
 			height: auto;
