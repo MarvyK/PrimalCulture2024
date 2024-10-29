@@ -1,6 +1,10 @@
 ---
 import MainLayout from "../layouts/Layout.astro";
 import "../css/styles.css";
+
+import { Image } from 'astro:assets';
+import PrimalCultureComingSoon from '../images/PrimalCultureComingSoon.jpg'
+import PrimalCultureComingSoon2 from '../images/PrimalCultureComingSooon.jpg'
 ---
 
 <MainLayout title="Primal Culture Tattoo Studio - Merchandise - Coming Soon!">
@@ -11,8 +15,9 @@ import "../css/styles.css";
       </div>
     </div>
     <div class="column-content grid-item">
-      <img src="/src/images/PrimalCultureComingSoon.jpg" alt="" class="eighty flip-image active" />
-      <img src="/src/images/PrimalCultureComingSooon.jpg" alt="" class="eighty flip-image" />
+      <Image src={PrimalCultureComingSoon} alt="" class="flip-image active" />
+      <Image src={PrimalCultureComingSoon2} alt="" class="flip-image" />
     </div>
   </div>
+  <script src="../js/imageflip.js"></script>
 </MainLayout>

@@ -1,6 +1,9 @@
 ---
 import MainLayout from "../layouts/Layout.astro";
 import "../css/styles.css";
+import videoSrc from '../images/videos/ThisIsMyBack.mp4'
+import { Image } from 'astro:assets';
+import whiteLogo from "../images/PrimalCulturelogowhitefull.png"
 ---
 
 <MainLayout title="Primal Culture Tattoo Studio - Get to know us">
@@ -104,7 +107,7 @@ import "../css/styles.css";
         <h3>If you like my content and my humour and would like to follow me?</h3>
         <br />
         <!-- <img src="/src/images/videos/ThisIsMyBack-ezgif.com-optimize.gif" alt="" /> -->
-        <video src="/src/images/videos/ThisIsMyBack2.mp4" loop autoplay width="100%"></video><br />
+        <video src={videoSrc} controls loop autoplay width="100%"></video><br />
         This is a picture of my back
       </div>
     </div>
@@ -112,7 +115,7 @@ import "../css/styles.css";
   <div class="container second-bg">
     <div class="column border-right-second">
       <div class="tattoo-container">
-        <img src="/src/images/PrimalCulturelogowhitefull.png" alt="Placeholder image 2" />
+        <Image src={whiteLogo} alt="Placeholder image 2" />
       </div>
     </div>
     <div class="column">
