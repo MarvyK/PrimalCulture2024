@@ -1,7 +1,11 @@
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
 export default defineConfig({
-    site: 'https://marvyk.github.io/',
+    site: 'https://marvyk.github.io',
     base: '/PrimalCulture2024',
+    image: {
+        service: {
+            entrypoint: 'astro/assets/services/sharp'
+        }
+    }
 });

@@ -1,13 +1,26 @@
 ---
 import MainLayout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
 import "../css/styles.css";
+
+// Import images
+import primalLogo from '../images/PrimalTattoCulture_red.png';
+import headTattoo from '../images/HeadTattooTikTok.png';
+import tattooing from "../images/tattooing.png";
+import tattooCoverUp from "../images/tattoo_coverup.png";
+import tattooDesigns from "../images/tatoo_designs.png";
+import requestYourArtist from "../images/request_your_artist.png";
+import tattooStudio from "../images/tattoo_studio.png";
+import ClintonNaidoo from "../images/ClintonNaidoo.png";
+import Tjappies from "../images/Tjappies.png";
+
 ---
 
 <MainLayout title="Primal Culture Tattoo Studio">
   <div class="container">
     <div class="column border-right">
       <div class="column-content">
-        <img src="/src/images/PrimalTattoCulture_red.png" alt="Primal Culture Tattoo Studio Since 2007" class="sixty" />
+        <Image src={primalLogo} alt="Primal Culture Tattoo Studio Since 2007" class="sixty" />
         <h2>We use 100% safe technology to create stunning artworks. We use certified equipment, which guarantees the best possible results.</h2>
         <div class="social-icons">
           <a href="https://www.facebook.com/PrimalCultureTattoo/" aria-label="Facebook Primal Culture" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -18,7 +31,7 @@ import "../css/styles.css";
     </div>
     <div class="column">
       <div class="column-content">
-        <img src="/src/images/HeadTattooTikTok.png" alt="Primal Culture Tjappies" class="one100Image" />
+        <Image src={headTattoo} alt="Primal Culture Tjappies" class="one100Image" />
       </div>
     </div>
   </div>
@@ -26,22 +39,22 @@ import "../css/styles.css";
     <div class="column border-right-second">
       <div class="tattoo-container">
         <div class="image-container">
-          <img src="/src/images/tattooing.png" alt="Tattooing" />
+          <Image src={tattooing} alt="Primal Culture Tjappies" class="one100Image" />
           <h2>Tattooing</h2>
           <p>AS SEEN ON TV! (Watch any program, it's the same).</p>
         </div>
         <div class="image-container">
-          <img src="/src/images/tattoo_coverup.png" alt="Tattoo cover up" />
+          <Image src={tattooCoverUp} alt="Tattoo cover up" />
           <h2>Tattoo Cover UP</h2>
           <p>We cover up your “drunken” mistake, if we cannot we professionally suggest plasters, bandages or permanent markers.</p>
         </div>
         <div class="image-container">
-          <img src="/src/images/tatoo_designs.png" alt="Tattoo designs" />
+          <Image src={tattooDesigns} alt="Tattoo designs" />
           <h2>Tattoo Designs</h2>
           <p>Suggestions? The internet is your friend! Bring it, we find it, we change it or we can “read your mind”.</p>
         </div>
         <div class="image-container">
-          <img src="/src/images/request_your_artist.png" alt="Request your artist" />
+          <Image src={requestYourArtist} alt="Request your artist" />
           <h2>Request Your artist</h2>
           <p>“If you owe me money, I am available for appointment and book when I am available. If I owe you money, I am dead”</p>
         </div>
@@ -57,7 +70,7 @@ import "../css/styles.css";
             Jan van Riebeek (V.O.C) , and they are well-travelled individuals (Home to work and back again mostly).
           </p>
         </div>
-        <img src="/src/images/ClintonNaidoo.png" alt="Clinton Naidoo" />
+        <Image src={ClintonNaidoo} alt="Clinton Naidoo" />
       </div>
     </div>
   </div>
@@ -92,7 +105,7 @@ import "../css/styles.css";
   <div id="modalBackdrop" class="modal-backdrop"></div>
   <div class="container second-bg">
     <div class="column border-right-second">
-      <div class="tattoo-container"><img src="/src/images/Tjappies.png" alt="Primal Culture Tjappies" class="sixty" /></div>
+      <div class="tattoo-container"><Image src={Tjappies} alt="Primal Culture Tjappies" class="one100Image" /></div>
     </div>
     <div class="column">
       <div class="column-content">

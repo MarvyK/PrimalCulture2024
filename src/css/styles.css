@@ -110,12 +110,13 @@
 		max-width: 80%;		
 	}
 	.sixty {
-		max-width: 100%;
-		height: auto;
-		max-height: 40vh;
+		max-width: 60%;
+		/* height: auto;
+		max-height: 40vh; */
 		margin: 50px 0;
 		border-radius: 50%;
 	}
+	
 	.eighty {
 		max-width: 100%;
 		height: auto;

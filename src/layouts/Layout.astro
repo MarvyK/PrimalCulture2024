@@ -1,6 +1,14 @@
 ---
 import Navigation from '../components/Navigation.astro';
+import { Image } from 'astro:assets';
 let { title } = Astro.props;
+
+// Import images
+import logoImage from '../images/PrimalCulture_Laurels.png';
+import samfordLogo from '../images/SamfordSolutions.png';
+import inkfinLogo from '../images/InkFin.png';
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -9,16 +17,18 @@ let { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../ico/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../ico/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../ico/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${baseUrl}/ico/apple-touch-icon.png`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${baseUrl}/ico/favicon-32x32.png`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`${baseUrl}/ico/favicon-16x16.png`} />
     <!-- <link rel="stylesheet" href="../css/styles.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   </head>
   <body>
     <header>
       <div class="logo">
-        <a href="/"><img src="/src/images/PrimalCulture_Laurels.png" alt="Experience world-class tattoo artistry at Primal Culture Tattoo Studio" /></a>
+        <a href={baseUrl + "/"}>
+          <Image src={logoImage} alt="Experience world-class tattoo artistry at Primal Culture Tattoo Studio" />
+        </a>
       </div>
       <input type="checkbox" id="menu-toggle" />
       <label for="menu-toggle" class="menu-toggle">
@@ -62,21 +72,22 @@ let { title } = Astro.props;
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-column">
-          <!-- <h3>Column 1</h3> -->
           <p>Terms of use | Privacy Policy</p>
-          <code
-            ><a href="https://www.samford.co.za" target="_blank" title="Developed and
-            maintained by Samford Solutions">
-              <img class="samford-img" src="/src/images/SamfordSolutions.png" alt="Developed and
-                        maintained by Samford Solutions" />
-            </a><br />Developed &amp; maintained by <br />
-            Samford Solutions (PTY) Ltd
+          <code>
+            <a href="https://www.samford.co.za" target="_blank">
+              <Image 
+                src={samfordLogo} 
+                alt="Developed and maintained by Samford Solutions"
+                class="samford-img"
+              />
+            </a>
+            <!-- ... -->
           </code>
         </div>
         <div class="footer-column">
-          <!-- <h3>Column 2</h3> -->
-          <!-- <p>Content for the second column goes here.</p> -->
-          <a href="https://tattoos.inkfin.co.za/" target="_blank"><img src="/src/images/InkFin.png" alt="InkFin" /></a>
+          <a href="https://tattoos.inkfin.co.za/" target="_blank">
+            <Image src={inkfinLogo} alt="InkFin" />
+          </a>
         </div>
       </div>
     </footer>
