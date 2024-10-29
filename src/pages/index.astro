@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/Layout.astro";
+import Gallery from '../components/Gallery.astro';
 import { Image } from 'astro:assets';
 import "../css/styles.css";
 
@@ -86,22 +87,7 @@ const base = import.meta.env.BASE_URL;
     </div>
   </div>
   <div class="grid-container">
-    <div class="grid-item"><img src="/src/images/gallery/355821151_808273564247609_8753376740080211220_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/357747053_936296897711725_5175620042658177581_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/357898560_981079789530092_8511795686080962704_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/405807814_870377394878092_5479877949243259484_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/410162287_18297169123181695_1965329375022566746_n.jpg" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/355069786_641973744483695_4250688778728926877_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/354193386_2010178275985816_7174598662134500909_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/354046287_3200046683626639_5112543862739647128_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/334614114_759086782312521_4150676821870082413_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/123594661_367062194634406_2953163752346731088_n.jpg" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/353852317_1317117899211241_4573409756134855604_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/353943503_601619632061742_1851267084366513112_n.jfif" alt="Tattooing" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/angelwings.jfif" alt="" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/Flower.jfif" alt="" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/hands.jfif" alt="" class="hover-image" /></div>
-    <div class="grid-item"><img src="/src/images/gallery/abstract.jfif" alt="" class="hover-image" /></div>
+    <Gallery></Gallery>
   </div>
   <div class="button-container">
     <a href="https://www.instagram.com/primal_culture/" target="_blank" class="red-button" aria-hidden="false">VIEW MORE</a>
