@@ -49,12 +49,16 @@
 		height: var(--header-height);
 		z-index: 1000;
 	}
+	.normal-link {
+		text-decoration: none;
+		color: inherit; /* Inherit the color from the parent element */
+	  }
 
 	.logo {
 		font-size: 24px;
 		font-weight: bold;
 	}
-	.logo img {
+	.logo img, .logo Image {
 		max-width: 20%;
 		height: auto;
 		padding: 20px 0 0 15px;
@@ -111,8 +115,8 @@
 	}
 	.sixty {
 		max-width: 60%;
-		/* height: auto;
-		max-height: 40vh; */
+		height: auto;
+		/* max-height: 40vh; */
 		margin: 50px 0;
 		border-radius: 50%;
 	}
@@ -124,13 +128,13 @@
 		margin: 10px 0;
 		border-radius: 10%;
 	}
-	img .one100Image {
+	img .one100Image, Image .one100Image {
 		max-width: 100%;
 		height: auto;
 		max-height: 100vh;
 	}
 
-	img {
+	img, Image {
 		max-width: 100%;
 		height: auto;
 		margin-bottom: 20px;
@@ -143,17 +147,18 @@
 	  
 	  .image-container {
 		position: relative;
-		width: 48%; /* Adjust width as needed */
+		/*width: 48%;  Adjust width as needed */
 		padding: 5%;
 		overflow: hidden;
 		max-width: 300px;
+		min-height: 430px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-		margin: 20px;
+		margin: 10px;
 		font-size: 1.5rem;
-
+		cursor: pointer;
 	  }
 	  
-	  .image-container img {		
+	  .image-container img, .image-container Image {		
 		justify-content: center;
   		align-items: center;
 		max-width: 100px;		
@@ -161,8 +166,9 @@
 		transition: transform 0.3s ease-in-out;
 	  }
 	  
-	  .image-container:hover img {
-		transform: scale(1.1);	  
+	  .image-container:hover img, .image-container:hover Image {
+		transform: scale(1.1);
+		cursor: pointer;
 	  }
 	  
 	  .image-container::after {
@@ -197,13 +203,15 @@
 		padding: 20px;
 		text-align: center;
 	  }
-	  .hover-image {
-		transition: transform 0.3s ease-in-out; /* Adjust transition duration and easing as needed */
+	   .hover-image {
+		transition: transform 0.3s ease-in-out;
+		cursor: pointer;
 	  }
 	  
 	  .hover-image:hover {
-		transform: scale(1.1); /* Increase size by 10% on hover */
-	  }
+		transform: scale(1.1); 
+		cursor: pointer;
+	  } 
 
 	/* Hamburger Menu Styles */
 	.menu-toggle {
@@ -507,7 +515,7 @@ ol>li {
 			margin: 0 auto; /* Center the container horizontally */
 	
 		  }
-		.logo img {
+		.logo img, .logo Image {
 			max-width: 25%;
 			height: auto;
 			padding: 15px 0 0 15px;
