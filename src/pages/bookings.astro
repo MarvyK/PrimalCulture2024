@@ -7,7 +7,7 @@ import "../css/bookings.css";
 <MainLayout>
   <div class="container">
     <div class="booking-container">
-      <h1 style="color: #1f2937; margin-bottom: 20px;">Tattoo Studio Booking</h1>
+      <h1>Tattoo Studio Booking</h1>
 
       <div class="main-content">
         <!-- Booking Form Section -->
@@ -34,9 +34,9 @@ import "../css/bookings.css";
               <label>Artist:</label>
               <select name="artist" id="artist" required>
                 <option value="">Select an artist</option>
-                <option value="artist1">John Doe</option>
-                <option value="artist2">Jane Smith</option>
-                <option value="artist3">Mike Johnson</option>
+                <option value="artist1">Clinton</option>
+                <option value="artist2">Tripple Lee</option>
+                <option value="artist3">Lee-Shay</option>
               </select>
             </div>
 
@@ -61,10 +61,10 @@ import "../css/bookings.css";
               <label>Size (approximate):</label>
               <select name="size" id="size" required>
                 <option value="">Select size</option>
-                <option value="small">Small (2-3 inches)</option>
-                <option value="medium">Medium (4-6 inches)</option>
-                <option value="large">Large (7-10 inches)</option>
-                <option value="extra-large">Extra Large (10+ inches)</option>
+                <option value="small">Small (&lt; 5cm)</option>
+                <option value="medium">Medium (6cm - 10cm)</option>
+                <option value="large">Large (11cm - 20cm)</option>
+                <option value="extra-large">Extra Large (&gt; 21cm)</option>
               </select>
             </div>
 
@@ -76,10 +76,10 @@ import "../css/bookings.css";
         </section>
 
         <!-- Bookings Display Section -->
-        <section class="bookings-display-section">
+        <!-- <section class="bookings-display-section">
           <h2 style="color: #374151; margin-bottom: 20px;">Current Bookings</h2>
           <div id="bookingsList"></div>
-        </section>
+        </section> -->
       </div>
     </div>
   </div>
