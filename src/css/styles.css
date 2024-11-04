@@ -18,6 +18,7 @@
         --bg-color: #1b1b1b;
 		--secondbg-color: #232428;
         --font-family: 'MyCustomFont', Roboto, Arial, sans-serif;
+		--normal-font: Arial, sans-serif;
         --font-size: 20px;
 		/* Extra Colors */
 		--blackcol: #000000;
@@ -405,7 +406,11 @@
 }
 .border-right-second  {
 	border-right: 1px solid rgba(255, 255, 255, 0.2);
-	margin: 40px 0 20px 0;
+	margin: 20px 0 20px 0;
+}
+.margin-top-bottom {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 .button-container {
     width: 100%;
@@ -429,8 +434,50 @@
 .red-line {
 	border-top: 0.5px solid var(--redred); height: 1px;
 	margin: 40px 0 20px 0;
-}	  
+}
+.normal-text {
+	font-family: var(--normal-font);
+	font-size: 1rem;
+}
+.w40 {width: 40%;}
+.w50 {width: 50%;}
+.w60 {width: 60%;}
+.w70 {width: 70%;}
+.w80 {width: 80%;}
+.w100 {width: 100%;}
 
+.inline-image {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 200px;
+    height: auto;
+  }
+  .inline-image-right {
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 300px;
+    height: auto;
+  }
+.br-70 {
+	border-radius: 70%;
+}
+.br-80 {
+	border-radius: 80%;
+}
+.br-90 {
+	border-radius: 90%;
+}
+.rounded-box {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+  }
+.d-block {
+	display: block;
+}
 .modal {
     display: none;
     position: fixed;
@@ -501,7 +548,7 @@ ol>li {
 		
 		.column, .contact-column {
 			width: 100%;
-			margin-top: calc(var(--header-height)/3);
+			margin-top: calc(var(--header-height)/5);
 		}
 		.column-content {
 			max-width: 100%;
@@ -516,6 +563,14 @@ ol>li {
 			margin: 0 auto; /* Center the container horizontally */
 	
 		  }
+		  .border-right-second  {
+			border-right: 1px solid rgba(255, 255, 255, 0.2);
+			margin: 5px 0 5px 0;
+		}
+		.margin-top-bottom {
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
 		  .block-container{
 			width: 100%;
 			/* max-width: 80%;	 */

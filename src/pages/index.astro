@@ -1,12 +1,12 @@
 ---
 import MainLayout from "../layouts/Layout.astro";
-import Gallery from '../components/Gallery.astro';
-import { Image } from 'astro:assets';
+import Gallery from "../components/Gallery.astro";
+import { Image } from "astro:assets";
 import "../css/styles.css";
 
 // Import images
-import primalLogo from '../images/PrimalTattoCulture_red.png';
-import headTattoo from '../images/HeadTattooTikTok.png';
+import primalLogo from "../images/PrimalCulture.png";
+import headTattoo from "../images/HeadTattooTikTok.png";
 import tattooing from "../images/tattooing.png";
 import tattooCoverUp from "../images/tattoo_coverup.png";
 import tattooDesigns from "../images/tatoo_designs.png";
@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL;
   <div class="container">
     <div class="column border-right">
       <div class="column-content">
-        <Image src={primalLogo} alt="Primal Culture Tattoo Studio Since 2007" class="sixty" />
+        <Image src={primalLogo} alt="Primal Culture Tattoo Studio Since 2007" class="" />
         <h2>We use 100% safe technology to create stunning artworks. We use certified equipment, which guarantees the best possible results.</h2>
         <div class="social-icons">
           <a href="https://www.facebook.com/PrimalCultureTattoo/" aria-label="Facebook Primal Culture" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -41,15 +41,15 @@ const base = import.meta.env.BASE_URL;
     <div class="column border-right-second">
       <div class="tattoo-container">
         <a href={base + "/bookings"} class="normal-link">
-        <div class="image-container"> <br>
-              <Image src={tattooing} alt="Primal Culture Tjappies" class="one100Image" />
-          <h2>Tattooing</h2>
-          <p>AS SEEN ON TV! (Watch any program, it's the same).</p>
-        </div>
-      </a>
-        
-      
-      <a href={base + "/bookings"} class="normal-link">
+          <div class="image-container">
+            <br />
+            <Image src={tattooing} alt="Primal Culture Tjappies" class="one100Image" />
+            <h2>Tattooing</h2>
+            <p>AS SEEN ON TV! (Watch any program, it's the same).</p>
+          </div>
+        </a>
+
+        <a href={base + "/bookings"} class="normal-link">
           <div class="image-container">
             <Image src={tattooCoverUp} alt="Tattoo cover up" />
             <h2>Tattoo Cover UP</h2>
@@ -87,7 +87,7 @@ const base = import.meta.env.BASE_URL;
     </div>
   </div>
   <div class="grid-container">
-    <Gallery></Gallery>
+    <Gallery />
   </div>
   <div class="button-container">
     <a href="https://www.instagram.com/primal_culture/" target="_blank" class="red-button" aria-hidden="false">VIEW MORE</a>

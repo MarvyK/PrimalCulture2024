@@ -1,9 +1,13 @@
 ---
 import MainLayout from "../layouts/Layout.astro";
 import "../css/styles.css";
-import videoSrc from '../images/videos/ThisIsMyBack.mp4'
-import { Image } from 'astro:assets';
-import whiteLogo from "../images/PrimalCulturelogowhitefull.png"
+import videoSrc from "../images/videos/ThisIsMyBack.mp4";
+import { Image } from "astro:assets";
+import whiteLogo from "../images/PrimalCulture.png";
+import kennetjieChamp from "../images/kennejieChamp1994.png";
+import kennetjieChamp2 from "../images/kennejieChamp2000.png";
+import cowboyClinton from "../images/cowboyClinton.png";
+import gonnaHurt from "../images/gonnaHurt.png";
 ---
 
 <MainLayout title="Primal Culture Tattoo Studio - Get to know us">
@@ -27,13 +31,12 @@ import whiteLogo from "../images/PrimalCulturelogowhitefull.png"
   <div class="container second-bg">
     <div class="column border-right-second">
       <div class="tattoo-container">
-        <img src="https://fakeimg.pl/460x460/cccccc/909090" alt="Placeholder image 2" />
+        <Image src={gonnaHurt} alt="Tattoos love me" class="rounded-box" />
       </div>
     </div>
     <div class="column">
       <div class="column-content">
         <div class="left">
-          <br />
           <h2>IS IT GOING TO HURT?</h2>
           <p>
             The atmosphere in the studio is what we want with an eclectic range of treffers. <br />
@@ -50,29 +53,45 @@ import whiteLogo from "../images/PrimalCulturelogowhitefull.png"
       <div class="column-content">
         <div class="left">
           <h2>Q: WHY DOES MY TATTOO BLEED?</h2>
-          <h3>A:That's what happens when a needle goes into your skin.</h3>
+          <h3 class="secondary-color">A: That's what happens when a needle goes into your skin.</h3>
           <p>
             Out staff are locally breed with imported seed, native to the indigenous Khoi San soil blown from the winds of the Cape of Storms. Once voted the no.! most popular place to visit in 1652
-            by Jan Van Riebeeck ( VOC), and they are well - travelled individuals ( Home to work and back again mostly) We once formed a vigilante super hero group called “ The Wordsmiths” but
-            disbanded at the end of the month. None of “The Wordsmiths” were billionaires (who could afford fancy gadgets) or orphans or any sort of super power but was rumoured to be able to stop a
-            bullet at least once. Medication dependant, at the right dose, between naps, we will give you service of value. We were once rated ourselves 4.6 stars (we think we over rated!). With
-            highly equipped standard occasionally fully functional upgraded Windows 8 software programmed computer system with a very low speeded internet connection and refurbished dot Matrix
-            printer. We can almost find any picture you found. Customer satisfaction is occasionally guaranteed so if the artists connects with you he/she will answer all questions in interpretive
-            dance. We also always almost have a lifeguard on duty so the chances of you drowning while getting tattooed is "very slim"
+            by Jan Van Riebeeck ( VOC), and they are well - travelled individuals ( Home to work and back again mostly).<br /><br /> We once formed a vigilante super hero group called “ The Wordsmiths”
+            but disbanded at the end of the month. None of “The Wordsmiths” were billionaires (who could afford fancy gadgets) or orphans or any sort of super power but was rumoured to be able to stop
+            a bullet at least once.<br /><br />Medication dependant, at the right dose, between naps, we will give you service of value. We were once rated ourselves 4.6 stars (we think we over
+            rated!).<br /><br />With highly equipped standard occasionally fully functional upgraded Windows 8 software programmed computer system with a very low speeded internet connection and
+            refurbished dot Matrix printer. We can almost find any picture you found.<br /><br />
+            Customer satisfaction is occasionally guaranteed so if the artists connects with you he/she will answer all questions in interpretive dance.<br /><br />
+            We also always almost have a lifeguard on duty so the chances of you drowning while getting tattooed is "very slim"<br /><br />
           </p>
         </div>
       </div>
     </div>
     <div class="column">
-      <div class="tattoo-container">
-        <img src="https://fakeimg.pl/460x600/cccccc/909090" alt="Placeholder image 1" />
+      <div class="column-content">
+        <div class="left margin-top-bottom">
+          <h2>Q: ARE THE NEEDLES CLEAN?</h2>
+          <h3 class="secondary-color">A: NO, THE NEEDLES ARE NEW!!!</h3>
+          <p>
+            And our equipment is also 100% real. We are registered and purchase from Local Accredited, Certified Suppliers who “says” they get their stuff from overseas, so we good. <br />
+            <br />
+            All needles are new and single use, inks decanted and disposed after every tattoo. Other Tattoo equipment are cold liquid sterilised and in-house autoclaved using Our Medical Grade Autoclave.<br
+            /><br />
+            All products are gluten free with little to no count of lactose. <br /><br />
+          </p>
+          <!-- <img src="https://fakeimg.pl/460x600/cccccc/909090" alt="Placeholder image 1" /> -->
+          <h2>Q: HOW MUCH IS A MEDIUM SIZE TATTOO, NOT TO BIG?</h2>
+          <h3 class="secondary-color">A: HOW BIG IS NOT BIG?</h3><br />
+          <h2>Q: DO YOU DO ZOOM TATTOOS?</h2>
+          <h3 class="secondary-color">A: Yes, we will. We are waiting on Elon Musk</h3>
+        </div>
       </div>
     </div>
   </div>
   <div class="container second-bg">
     <div class="column border-right-second">
       <div class="tattoo-container">
-        <img src="https://fakeimg.pl/320x320/cccccc/909090" alt="Placeholder image 2" />
+        <Image src={kennetjieChamp2} alt="Kennetjie Champion 1994" class="w70 rounded-box" />
       </div>
     </div>
     <div class="column">
@@ -80,9 +99,10 @@ import whiteLogo from "../images/PrimalCulturelogowhitefull.png"
         <div class="left">
           <h2>KENNETJIE IS A REAL SPORT</h2>
           <p>
-            And our equipment is also 100% real. We are registered and purchase from Local Accredited, Certified Suppliers who “says” they get their stuff from overseas, so we good :D. All needles are
-            new and single use, inks decanted and disposed after every tattoo. Other Tattoo equipment are cold liquid sterilised and in-house autoclaved using Our Medical Grade Autoclave. All products
-            are gluten free with little to no count of lactose. Q: HOW MUCH IS A MEDIUM SIZE TATTOO, NOT TOO BIG? A: HOW BIG IS NOT BIG
+            And our equipment is also 100% real. We are registered and purchase from Local Accredited, Certified Suppliers who “says” they get their stuff from overseas, so we good 😋 <br /><br />All
+            needles are new and single use, inks decanted and disposed after every tattoo. Other Tattoo equipment are cold liquid sterilised and in-house autoclaved using Our Medical Grade Autoclave. <br
+            /><br />
+            All products are gluten free with little to no count of lactose. <br />
           </p>
         </div>
       </div>
@@ -92,30 +112,37 @@ import whiteLogo from "../images/PrimalCulturelogowhitefull.png"
     <div class="column border-right-second">
       <div class="column-content">
         <div class="left">
-          <h2>KENNETJIE IS A REAL SPORT</h2>
+          <h2>Clinton's Hard Life</h2>
           <p>
-            And our equipment is also 100% real. We are registered and purchase from Local Accredited, Certified Suppliers who “says” they get their stuff from overseas, so we good :D. All needles are
-            new and single use, inks decanted and disposed after every tattoo. Other Tattoo equipment are cold liquid sterilised and in-house autoclaved using Our Medical Grade Autoclave. All products
-            are gluten free with little to no count of lactose. <br />
-            <strong>Q: HOW MUCH IS A MEDIUM SIZE TATTOO, NOT TOO BIG? <br />A: HOW BIG IS NOT BIG</strong>
+            Clinton grew up in the suburbs in a three bedroom house being paid for by his hard working married mother and father. Being the middle sibling to Daleen and Karen who eventually ended with
+            his own room for privacy. <br /><br />
+            <Image src={kennetjieChamp} alt="Kennetjie Champion 1994" class="inline-image br-70" /> As his rebellious teenage years came upon, he joined a soccer team at the local sports district. Years
+            after realizing he wasn't any good at that sport he joined the (much debatable and questionable) kennetjie squad where he excelled above average expectations. <br /><br />
+            He dropped out of school after finishing Matric and having "girls, boys, veg, fruit" runners-up certificate, trick-shot kerem board gold medal as well as Western Province Kennetjie colours
+            he pursued more accolades. Training vigorously with German-like precision and Italian-like passion to be the best at all sports eventually he surrendered, after finding out that he could just
+            buy any trophy at his local 'trophy shop". <br /><br />
+            This period in his life has brought him into the dark world of "under ground" scrabble which he took to the streets playing anyone and anywhere. After counselling he had to give up that addiction
+            as it was consuming him to his core, (he once made the word "bedazzled" sacrificing a blank for a "z", getting the 50 points extra including a "triple word" score) those were the dark days.
+            <br /><br /> After 2 weeks of being a vegetarian someone told him that chicken was not a vegetable.
+            <br /><br /> He is now into secretive adult games in the evening, namely blood pressure , blood pressure 115/ 78 and sugar level, sugar level
           </p>
         </div>
       </div>
     </div>
     <div class="column">
       <div class="tattoo-container">
-        <h3>If you like my content and my humour and would like to follow me?</h3>
-        <br />
-        <!-- <img src="/src/images/videos/ThisIsMyBack-ezgif.com-optimize.gif" alt="" /> -->
+        <Image src={cowboyClinton} alt="Placeholder image 2" class="w50 rounded-box d-block" />
+        <h3 class="secondary-color">If you like my content and my humour and would like to follow me?</h3>
+        <br /><br />
         <video src={videoSrc} controls loop autoplay width="100%"></video><br />
-        This is a picture of my back
+        This is what I look like from the back
       </div>
     </div>
   </div>
   <div class="container second-bg">
     <div class="column border-right-second">
       <div class="tattoo-container">
-        <Image src={whiteLogo} alt="Placeholder image 2" />
+        <Image src={whiteLogo} alt="Placeholder image 2" class="w70" />
       </div>
     </div>
     <div class="column">
@@ -126,9 +153,9 @@ import whiteLogo from "../images/PrimalCulturelogowhitefull.png"
             Primal Culture Tattoo Studio was established in 2007 by Clinton Naidoo who has been in the industry since the early 2000's who trained under various artist and studios, after 8 successful
             years from Wynberg Cape Town, he relocated to Plumstead for 4 years then in 2021 to his forever studio in Diep River, the staff creates a friendly environment with comfort and hospitality
             our first priority. <br /><br />
-            The clients design and our influences our main objective to achieve the most desirable results and the ability to adapt designs and vision together.<br />
+            The clients design and our influences our main objective to achieve the most desirable results and the ability to adapt designs and vision together.<br /><br />
             We offer a transparent studio for comfort as well as a private booth for discretion.<br />
-            Pathogen controlled trained and uses a certified medical waste disposable company for all tattoo consumable waste and sharps according to strict localn government legislation.<br /><br />
+            Pathogen controlled trained and uses a certified medical waste disposable company for all tattoo consumable waste and sharps according to strict local government legislation.<br /><br />
             All tattoo equipment are cold sterilised and autoclaved sterilised.<br />
             Single use needles and inks are disposed of responsibly.<br />
             Western Cape Government Environmental Affairs and development Planning certified.
