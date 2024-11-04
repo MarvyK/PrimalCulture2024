@@ -7,6 +7,7 @@ let { title } = Astro.props;
 import logoImage from "../images/PrimalCulture_Laurels.png";
 import samfordLogo from "../images/SamfordSolutions.png";
 import inkfinLogo from "../images/InkFin.png";
+import FooterNav from "../components/FooterNav.astro";
 
 const baseUrl = import.meta.env.BASE_URL;
 ---
@@ -38,43 +39,44 @@ const baseUrl = import.meta.env.BASE_URL;
       </label>
       <Navigation />
     </header>
-    <!-- CONTENT STARTS HERE -->
-    <slot />
-
-    <div class="red-line"></div>
-    <div class="map-column">
-      <div class="map-container">
-        <div class="map-box">
-          <iframe
+    <main>
+      <slot />
+      <div class="red-line"></div>
+      <FooterNav />
+      <div class="map-column">
+        <div class="map-container">
+          <div class="map-box">
+            <!-- <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.547793009641!2d18.46117018908992!3d-34.02981675821442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc42d1930f29d1%3A0xd74fc4ad673c110d!2sPrimal%20Culture%20Tattoo%20Studio!5e0!3m2!1sen!2sza!4v1729555759500!5m2!1sen!2sza"
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <div class="reviews-container">
+            referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+            <!-- <div class="reviews-container">
             <div class="star-rating">★★★★★</div>
             <div class="review-count">4.8 out of 5</div>
             <div class="review-count">Based on 150 reviews</div>
             <a href="https://g.page/r/your-google-review-link" target="_blank" class="google-review-link">Write a Review</a>
+          </div> -->
+          </div>
+          <div class="map-content">
+            <h3>Find Us At:</h3>
+            <p>
+              Unit 3, Clarewood<br />
+              1 Annandale Rd<br />
+              Diep River, Cape Town<br />
+              7800 <br />
+              <a href="tel:+27217071299" class="white-link"><i class="fa fa-phone fa-xs"></i>&nbsp; +27 21 707 1299&nbsp; </a>
+              <br />
+              <a href="mailto:info@primalculture.co.za" class="white-link"><i class="fa fa-envelope"></i>&nbsp; info@primalculture.co.za&nbsp; </a>
+              <br />
+              <a href="https://api.whatsapp.com/send?phone=27217071299&text=Hello%20Primal%20Culture%20Tattoo%20Studio" class="white-link" target="_blank"
+                ><i class="fa fa-brands fa-whatsapp"></i>&nbsp; WhatsApp us now&nbsp;
+              </a>
+            </p>
           </div>
         </div>
-        <div class="map-content">
-          <h3>Find Us At:</h3>
-          <p>
-            Unit 3, Clarewood<br />
-            1 Annandale Rd<br />
-            Diep River, Cape Town<br />
-            7800 <br />
-            <a href="tel:+27217071299" class="white-link"><i class="fa fa-phone fa-xs"></i>&nbsp; +27 21 707 1299&nbsp; </a>
-            <br />
-            <a href="mailto:info@primalculture.co.za" class="white-link"><i class="fa fa-envelope"></i>&nbsp; info@primalculture.co.za&nbsp; </a>
-            <br />
-            <a href="https://api.whatsapp.com/send?phone=27217071299&text=Hello%20Primal%20Culture%20Tattoo%20Studio" class="white-link" target="_blank"
-              ><i class="fa fa-brands fa-whatsapp"></i>&nbsp; WhatsApp us now&nbsp;
-            </a>
-          </p>
-        </div>
       </div>
-    </div>
+    </main>
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-column">
