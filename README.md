@@ -1,4 +1,8 @@
-# Primal Culture Tattoo Studio - 2024 (Using Astro)
+![alt text](https://primalculture.co.za/PrimalCulture.png)
+
+# Primal Culture Tattoo Studio - 2024
+
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /> <img src="https://img.shields.io/badge/Astro-8769ff?style=for-the-badge&logo=astro&logoColor=#000000" /> <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /> <img src="https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=Adobe%20Photoshop&logoColor=black" /> 
 
 ```sh
 npm create astro@latest -- --template basics
