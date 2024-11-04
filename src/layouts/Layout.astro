@@ -1,12 +1,12 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import { Image } from 'astro:assets';
+import Navigation from "../components/Navigation.astro";
+import { Image } from "astro:assets";
 let { title } = Astro.props;
 
 // Import images
-import logoImage from '../images/PrimalCulture_Laurels.png';
-import samfordLogo from '../images/SamfordSolutions.png';
-import inkfinLogo from '../images/InkFin.png';
+import logoImage from "../images/PrimalCulture_Laurels.png";
+import samfordLogo from "../images/SamfordSolutions.png";
+import inkfinLogo from "../images/InkFin.png";
 
 const baseUrl = import.meta.env.BASE_URL;
 ---
@@ -64,7 +64,13 @@ const baseUrl = import.meta.env.BASE_URL;
             1 Annandale Rd<br />
             Diep River, Cape Town<br />
             7800 <br />
-            <a href="tel:+27217071299" class="white-link">+27 21 707 1299</a>
+            <a href="tel:+27217071299" class="white-link"><i class="fa fa-phone fa-xs"></i>&nbsp; +27 21 707 1299&nbsp; </a>
+            <br />
+            <a href="mailto:info@primalculture.co.za" class="white-link"><i class="fa fa-envelope"></i>&nbsp; info@primalculture.co.za&nbsp; </a>
+            <br />
+            <a href="https://api.whatsapp.com/send?phone=27217071299&text=Hello%20Primal%20Culture%20Tattoo%20Studio" class="white-link" target="_blank"
+              ><i class="fa fa-brands fa-whatsapp"></i>&nbsp; WhatsApp us now&nbsp;
+            </a>
           </p>
         </div>
       </div>
@@ -75,11 +81,7 @@ const baseUrl = import.meta.env.BASE_URL;
           <p>Terms of use | Privacy Policy</p>
           <code>
             <a href="https://www.samford.co.za" target="_blank">
-              <Image 
-                src={samfordLogo} 
-                alt="Developed and maintained by Samford Solutions"
-                class="samford-img"
-              />
+              <Image src={samfordLogo} alt="Developed and maintained by Samford Solutions" class="samford-img" />
             </a>
             <!-- ... -->
           </code>
