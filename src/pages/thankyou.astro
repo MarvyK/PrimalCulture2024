@@ -1,0 +1,39 @@
+---
+import MainLayout from "../layouts/Layout.astro";
+import "../css/styles.css";
+
+import videoSrc from '../images/videos/easytattoocare.mp4'
+---
+
+<MainLayout title="Primal Culture Tattoo Studio - Thank you">
+    <div class="container">
+    <div class="column border-right">
+      <div class="column-content">
+        <h1>Thank you</h1>
+        <p>Your submission has been received.&nbsp;<br><br><br>
+        </p>        
+        <h2>Tattoo Aftercare</h2>
+        <ol class="left">
+          <li>Remove patch tomorrow morning.</li>
+          <li>
+            Wash tattoo with your hands in luke warm soap water (mild soap, no anti-bacterial soaps). <br />
+            Be sure to take off all the slime. <br />
+            Now pat dry with a clean towel. <br />
+            Leave open for tattoo to breathe for an hour (60 minutes).
+          </li>
+          <li><strong>Repeat</strong> this step 3 times a day, applying a <strong>SMALL</strong> amount of tattoo ice and rub it well over the entire tattoo for <strong>5 days</strong></li>
+          <li>Do not soak your tattoo until all the flakes are off.</li>
+          <li>No pool water, salt water, sun, oils or dirt on your new tattoo.</li>
+          <li>Never pick any flakes (scabs).</li>
+          <li>After day 5, use non-scented Aqueous Cream until all flakes are off and skin has regenerated itself completely</li>
+        </ol>
+        <h3>Thank you and enjoy your new tattoo!</h3>
+      </div>
+    </div>
+    <div class="column">
+      <div class="column-content video">
+        <video src={videoSrc} controls loop autoplay width="100%"></video>
+      </div>
+    </div>
+  </div> 
+</MainLayout>
