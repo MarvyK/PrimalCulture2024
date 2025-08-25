@@ -50,28 +50,42 @@ const baseUrl = import.meta.env.BASE_URL;
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.547793009641!2d18.46117018908992!3d-34.02981675821442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc42d1930f29d1%3A0xd74fc4ad673c110d!2sPrimal%20Culture%20Tattoo%20Studio!5e0!3m2!1sen!2sza!4v1729555759500!5m2!1sen!2sza"
               allowfullscreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <div class="reviews-container">
-              <div class="star-rating">★★★★★</div>
-              <div class="review-count">4.8 out of 5</div>
-              <div class="review-count">Based on 150 reviews</div>
-              <a href="https://g.page/r/your-google-review-link" target="_blank" class="google-review-link">Write a Review</a>
-            </div>
+              referrerpolicy="no-referrer-when-downgrade"></iframe>            
           </div>
           <div class="map-content">
-            <h3>Find Us At:</h3>
-            <p>
+            <h3 class="secondary-color">Find Us in Diep River:</h3>
+            <div>
               Unit 3, Clarewood<br />
               1 Annandale Road<br />
-              Diep River, Cape Town, 7800 <br />
+              Diep River <br />
+              Cape Town <br />
               <a href="tel:+27217071299" class="white-link"><i class="fa fa-phone fa-xs"></i>&nbsp; +27 21 707 1299&nbsp; </a>
               <br />
-              <a href="mailto:info@primalculture.co.za" class="white-link"><i class="fa fa-envelope"></i>&nbsp; info@primalculture.co.za&nbsp; </a>
+              <a href="mailto:info@primalculture.co.za" class="white-link"><i class="fa fa-envelope secondary-color"></i>&nbsp; info@primalculture.co.za&nbsp; </a>
               <br />
               <a href="https://api.whatsapp.com/send?phone=27217071299&text=Hello%20Primal%20Culture%20Tattoo%20Studio" class="white-link" target="_blank"
-                ><i class="fa fa-brands fa-whatsapp"></i>&nbsp; WhatsApp us now&nbsp;
+                ><i class="fa fa-brands fa-whatsapp whatsApp"></i>&nbsp; WhatsApp us now&nbsp;
               </a>
-            </p>
+            </div>            
+          </div>
+          <div class="map-content">
+            <h3 class="secondary-color">Find Us in Pinelands:</h3>
+            <div>
+              Office 4c (room3)<br />
+              First floor, West End Mall, Mutual Park<br />
+              Jan Smuts Drive<br />
+              Pinelands<br />
+              <a href="tel:+27217071299" class="white-link"><i class="fa fa-phone fa-xs"></i>&nbsp; +27 21 707 1299&nbsp; </a>
+              <br />
+              <a href="mailto:info@primalculture.co.za" class="white-link"><i class="fa fa-envelope secondary-color"></i>&nbsp; info@primalculture.co.za&nbsp; </a>
+              <br />
+              <a href="https://api.whatsapp.com/send?phone=27217071299&text=Hello%20Primal%20Culture%20Tattoo%20Studio" class="white-link" target="_blank"
+                ><i class="fa fa-brands fa-whatsapp whatsApp"></i>&nbsp; WhatsApp us now&nbsp;
+              </a>
+            </div>
+          </div>
+          <div class="map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4073.70421707847!2d18.51113257655635!3d-33.92330132188528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5d4f50f9a667%3A0x8011e9dc70654388!2sOld%20Mutual%20Mutual%20Park!5e1!3m2!1sen!2sza!4v1742426185607!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            
           </div>
         </div>
       </div>
@@ -79,12 +93,54 @@ const baseUrl = import.meta.env.BASE_URL;
     <main class="footer">
       <div class="footer-content">
         <div class="footer-column">
-          <p>Terms of use | Privacy Policy</p>
+          <div class="footer-icons">
+            <a
+              href="https://www.tiktok.com/@primal_culture"
+              title="TikTok Primal Culture"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/PrimalCultureTattoo/"
+              target="_blank"
+              title="Facebook Primal Culture Tattoo Studio"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/primal_culture/?hl=en"
+              target="_blank"
+              title="Primal Culture on Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="mailto:info@primalculture.co.za"
+              ><i
+                class="fa-regular fa-envelope"
+                title="Email Primal Culture Now!"
+              ></i
+            ></a>
+            <a href="tel:+27217071299" title="Call Primal Culture"
+              ><i class="fa-solid fa-phone"></i
+            ></a>
+            <a
+              href="https://wa.me/27217071299?text=Hello%20there%20from%20the%20website"
+              target="_blank"
+              title="WhatsApp Primal Culture"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+          </p>
+        </div>
           <code>
             <a href="https://www.samford.co.za" target="_blank">
-              <Image src={samfordLogo} alt="Developed and maintained by Samford Solutions" class="samford-img" />
-            </a>
+              <Image src={samfordLogo} alt="Developed and maintained by Samford Solutions" class="samford-img" />              
+            </a><br>Developed &amp; maintained by <br />Samford Solutions (PTY) Ltd
           </code>
+        </div>
+        <div class="footer-column">
+          <div class="reviews-container">
+            <div class="star-rating">★★★★★</div>
+            <div class="review-count">4.8 out of 5</div>
+            <div class="review-count">Based on 150 reviews</div>
+            <a href="https://g.page/r/your-google-review-link" target="_blank" class="google-review-link">Write a Review</a>
+          </div>
         </div>
         <div class="footer-column">
           <a href="https://tattoos.inkfin.co.za/" target="_blank">
