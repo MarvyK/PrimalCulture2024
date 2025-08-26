@@ -1,0 +1,50 @@
+---
+import MainLayout from "../layouts/Layout.astro";
+import "../css/styles.css";
+---
+<style>
+  .image-container {
+    /* ... other styles ... */
+  }
+
+  .image-container:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+</style>
+<MainLayout title="Primal Culture Tattoo Studio - Template">
+  <div class="container">
+    <div class="column">
+      <div class="column-content">
+        <h1>Competition Info</h1>
+        <a href="https://www.example.com">
+          <div class="image-container">
+            <img src="image.jpg" alt="Image description">
+            <p>Image caption</p>
+          </div>
+        </a>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="column border-right">
+      <div class="column-content left">
+        <h1>Heading 1</h1>
+        <p>Copy goes here - left aligned</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="column-content">
+        <h2>Heading 2</h2>
+        <p>Stuff and Things - centered</p>
+      </div>
+      <div class="column-content left">
+        <h3>Heading 3</h3>
+        <p>Stuff and Things - centered</p>
+      </div>
+    </div>
+  </div>
+</MainLayout>

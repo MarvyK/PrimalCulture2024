@@ -1,6 +1,9 @@
 ---
 import MainLayout from "../layouts/Layout.astro";
 import "../css/styles.css";
+import { Image } from "astro:assets";
+import spca1 from "../images/community/Primal-Culture-Team-in-SPCA-tees-Natasha-b-1.jpg";
+import glenbridge1 from "../images/community/GlenbridgeSpecialInk2025.jpg";
 ---
 
 <MainLayout title="Primal Culture Tattoo Studio - Community Outreach">
@@ -8,31 +11,48 @@ import "../css/styles.css";
     <div class="column">
       <div class="column-content left">
         <h1>Community Outreach</h1>
-        <div>
-          <p class="left"><h3>CHOC</h3>JUNE 2014 collective tattoo studios across South African</p>
-        </div>
-        <div>
-          <p><h3>RESCUE IS THE NEW BLACK</h3> - DEC 2018</p>
-        </div>
-        <div>
-          <p>
-            <h3>SPCA TATS 4 TAILS</h3>
-            2019<br />
-            2020<br />
-            2022<br />
-            2023<br />
-            20242019
-          </p>
-        </div>
-        <div>
-          <div>
-            <p><h3>Glenbridge Resource Centre</h3> 2023 2024</p>
+        <div class="column">
+        <div class="column-content">
+        <h2>Cape of Good Hope SPCA</h2>
+        <a href="https://www.example.com">
+          <div class="">
+            <Image src={spca1} alt="Tattoos love me" class="" />
+            <p>Image caption</p>
           </div>
-          <div>
-            <p><h3>Suicide Prevention</h3> 2023</p>
-          </div>
-        </div>
+        </a>
+        🐕‍🦺🐶🐕🐩<a href="https://capespca.co.za/?s=tats4tails" target="_blank" class="white-link">Tats4Tails</a> is a fundraising initiative by the Cape of Good Hope SPCA, where tattoo artists volunteer their time and skills to create unique tattoos for a good cause. All proceeds from the tattoos go directly to supporting the SPCA's mission of rescuing and caring for animals in need. By getting a tattoo through this program, individuals not only receive a meaningful piece of art but also contribute to the welfare of animals in their community.
+        
       </div>
     </div>
+    <div class="column">
+        <div class="column-content">
+        <h2>Glenbridge</h2>
+        <a href="https://www.example.com">
+          <div class="">
+            <Image src={glenbridge1} alt="Tattoos love me" class="" />
+            <p>Image caption</p>
+          </div>
+        </a>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis harum dignissimos ad nam recusandae ipsum eligendi nesciunt incidunt? Facere voluptatum quas enim, iure vero cum quod nisi laborum obcaecati minima.
+        
+      </div>
+    </div>
+    <div class="column">
+        <div class="column-content">
+        <h2>Choc</h2>
+        <a href="https://www.example.com">
+          <div class="">
+            <Image src={glenbridge1} alt="Tattoos love me" class="" />
+            <p>Image caption</p>
+          </div>
+        </a>
+        <a href="https://wa.me/270217071299?text=Hello%2C%20I%20need%20support%21">WHATSAPP TEST</a>
+        <a href="https://wa.me/270217071299?text=I%20would%20like%20to%20inquire%20about%20your%20services">WHATSAPP TEST</a>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis harum dignissimos ad nam recusandae ipsum eligendi nesciunt incidunt? Facere voluptatum quas enim, iure vero cum quod nisi laborum obcaecati minima.
+        
+      </div>
+    </div>
+    </div>
+    </div>    
   </div>
 </MainLayout>
