@@ -1,253 +1,247 @@
-
 ---
-// src/pages/booking.astro
+import MainLayout from "../layouts/Layout.astro";
+import "../css/styles.css";
+import "../css/bookings.css";
+
 export const prerender = true;
-
-let message = null;
-let formData = {};
-
-// Check if we're in development mode
-const isDev = import.meta.env.DEV;
-
-// Handle form submission
-if (Astro.request.method === 'POST') {
-  try {
-    const data = await Astro.request.formData();
-    formData = Object.fromEntries(data.entries());
-    
-    console.log('Form submitted with data:', formData);
-    
-    // Validate required fields
-    const required = ['name', 'email', 'booking_date', 'service'];
-    const missing = required.filter(field => !formData[field]);
-    
-    if (missing.length > 0) {
-      message = {
-        type: 'error',
-        text: `Missing required fields: ${missing.join(', ')}`
-      };
-    } else if (isDev) {
-      // In development, just show success message without database
-      console.log('Development mode - simulating successful booking');
-      message = {
-        type: 'success',
-        text: 'Development mode: Form data received successfully! This will save to database when deployed.'
-      };
-      formData = {}; // Clear form on success
-    } else {
-      // Production database connection
-      //const mysql = await import('mysql2/promise');
-      
-      const dbConfig = {
-        host: 'localhost',
-        user: 'primafev_admin',     // Replace with your cPanel database username
-        password: '0tAgZ-;8T#yMq4.R', // Replace with your cPanel database password
-        database: 'primafev_your_username_bookings' // Replace with your cPanel database name
-      };
-      
-      console.log('Production mode - attempting database connection...');
-      
-      const connection = await mysql.createConnection(dbConfig);
-      
-      console.log('Database connected, inserting booking...');
-      
-      // Insert booking
-      const [result] = await connection.execute(
-        `INSERT INTO bookings (name, email, phone, booking_date, booking_time, service, message, created_at) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, NOW())`,
-        [
-          formData.name,
-          formData.email,
-          formData.phone || null,
-          formData.booking_date,
-          formData.booking_time || null,
-          formData.service,
-          formData.message || null
-        ]
-      );
-      
-      await connection.end();
-      
-      console.log('Booking inserted successfully with ID:', result.insertId);
-      
-      message = {
-        type: 'success',
-        text: 'Booking submitted successfully! We\'ll contact you soon.'
-      };
-      
-      formData = {}; // Clear form on success
-    }
-  } catch (error) {
-    console.error('Booking error:', error);
-    console.error('Error details:', error.message);
-    
-    if (isDev) {
-      message = {
-        type: 'error',
-        text: `Development error: ${error.message}`
-      };
-    } else {
-      message = {
-        type: 'error',
-        text: `Error: ${error.message}`
-      };
-    }
-  }
-}
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book an Appointment</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Book Your Appointment</h1>
-        
-        {message && (
-            <div class={`message ${message.type}`}>
-                {message.text}
-            </div>
-        )}
-        
-        {isDev && (
-            <div class="dev-notice">
-                <strong>Development Mode:</strong> Form validation works, but database connection will only work when deployed to cPanel.
-            </div>
-        )}
-        
-        <form method="POST">
+<MainLayout>
+  <div class="container">
+    <div class="booking-container">
+      <h1>Tattoo Studio Bookings</h1>
+
+      <div class="main-content">
+        <!-- Success Message -->
+        <div id="successMessage" class="alert alert-success" style="display: none;">
+          ✓ Thank you! Your booking request has been sent. We'll get back to you soon!
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="alert alert-error" style="display: none;">
+          ✗ Something went wrong. Please try again or contact us directly.
+        </div>
+
+        <!-- Booking Form Section -->
+        <section class="booking-form-section">
+          <form id="bookingForm">
+            <!-- Web3Forms Configuration -->
+            <input type="hidden" name="access_key" value="312b6a55-bd20-4427-967f-c13d1e7d6877" />
+            <input type="hidden" name="subject" value="New Tattoo Booking Request" />
+            <input type="hidden" name="from_name" value="Tattoo Studio Booking" />
+
             <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" value={formData.name || ''} required>
+              <label>Name: <span style="color: #ff6b6b;">*</span></label>
+              <input type="text" name="name" id="name" required />
             </div>
-            
+
             <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" value={formData.email || ''} required>
+              <label>Email: <span style="color: #ff6b6b;">*</span></label>
+              <input type="email" name="email" id="email" required />
             </div>
-            
+
             <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" value={formData.phone || ''}>
+              <label>Phone Number: <span style="color: #ff6b6b;">*</span></label>
+              <input type="tel" name="phone" id="phone" required />
             </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="booking_date">Date *</label>
-                    <input type="date" id="booking_date" name="booking_date" value={formData.booking_date || ''} required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="booking_time">Time</label>
-                    <input type="time" id="booking_time" name="booking_time" value={formData.booking_time || ''}>
-                </div>
-            </div>
-            
+
             <div class="form-group">
-                <label for="service">Service *</label>
-                <select id="service" name="service" required>
-                    <option value="">Select a service</option>
-                    <option value="consultation" {formData.service === 'consultation' && 'selected'}>Consultation</option>
-                    <option value="web-design" {formData.service === 'web-design' && 'selected'}>Web Design</option>
-                    <option value="maintenance" {formData.service === 'maintenance' && 'selected'}>Maintenance</option>
-                    <option value="seo" {formData.service === 'seo' && 'selected'}>SEO Services</option>
-                </select>
+              <label>Artist: <span style="color: #ff6b6b;">*</span></label>
+              <select name="artist" id="artist" required>
+                <option value="">Select an artist</option>
+                <option value="clinton">Clinton</option>
+                <option value="tripple-lee">Tripple Lee</option>
+                <option value="any">It doesn't matter. I trust you guys</option>
+              </select>
             </div>
-            
+
             <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4">{formData.message || ''}</textarea>
+              <label>Preferred Date: <span style="color: #ff6b6b;">*</span></label>
+              <input type="date" name="booking_date" id="date" required />
             </div>
-            
-            <button type="submit">Book Now</button>
-        </form>
+
+            <div class="form-group">
+              <label>Preferred Time: <span style="color: #ff6b6b;">*</span></label>
+              <select name="time" id="time" required>
+                <option value="">Select a time</option>
+                <option value="09:00">09:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="13:00">01:00 PM</option>
+                <option value="14:00">02:00 PM</option>
+                <option value="15:00">03:00 PM</option>
+                <option value="16:00">04:00 PM</option>
+                <option value="17:00">05:00 PM</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Tattoo Description: <span style="color: #ff6b6b;">*</span></label>
+              <textarea 
+                name="description" 
+                id="description" 
+                required 
+                rows="4"
+                placeholder="Describe your tattoo idea, placement, style preferences, etc."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Size (approximate): <span style="color: #ff6b6b;">*</span></label>
+              <select name="size" id="size" required>
+                <option value="">Select size</option>
+                <option value="small">Small (&lt; 5cm)</option>
+                <option value="medium">Medium (6cm - 10cm)</option>
+                <option value="large">Large (11cm - 20cm)</option>
+                <option value="extra-large">Extra Large (&gt; 21cm)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Reference Images (optional):</label>
+              <input 
+                type="text" 
+                name="reference_images" 
+                id="reference"
+                placeholder="Link to reference images (Google Drive, Dropbox, etc.)"
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Additional Notes:</label>
+              <textarea 
+                name="additional_notes" 
+                id="additional" 
+                rows="3"
+                placeholder="Any allergies, special requests, or questions?"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-button" id="submitButton">
+              Book Appointment
+              <span id="loadingSpinner" class="loading-spinner" style="display: none;"></span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Bookings Display Section (commented out as it requires backend) -->
+        <!-- <section class="bookings-display-section">
+          <h2 style="color: #374151; margin-bottom: 20px;">Current Bookings</h2>
+          <div id="bookingsList"></div>
+        </section> -->
+      </div>
     </div>
+  </div>
 
-    <style>
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
+  <style>
+    .alert {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+      animation: slideIn 0.3s ease;
+    }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+    .alert-success {
+      background: rgba(76, 175, 80, 0.1);
+      border: 2px solid #4caf50;
+      color: #4caf50;
+    }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
+    .alert-error {
+      background: rgba(244, 67, 54, 0.1);
+      border: 2px solid #f44336;
+      color: #f44336;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
+    .loading-spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 0.6s linear infinite;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
 
-        button {
-            background: #007cba;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 
-        button:hover {
-            background: #005a87;
-        }
+  <script>
+    const form = document.getElementById('bookingForm');
+    const submitBtn = document.getElementById('submitButton');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const dateInput = document.getElementById('date');
 
-        .message {
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-            font-weight: bold;
-        }
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
 
-        .success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+      // Show loading state
+      submitBtn.disabled = true;
+      loadingSpinner.style.display = 'inline-block';
+      const originalText = submitBtn.childNodes[0].textContent;
+      submitBtn.childNodes[0].textContent = 'Sending...';
 
-        .dev-notice {
-            background: #fff3cd;
-            color: #856404;
-            padding: 10px;
-            border: 1px solid #ffeaa7;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
+      // Hide previous messages
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
 
-        @media (max-width: 600px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
+      try {
+        const formData = new FormData(form);
+        
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Show success message
+          successMessage.style.display = 'block';
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Reset form
+          form.reset();
+          
+          // Reset date min attribute after form reset
+          dateInput.setAttribute('min', today);
+        } else {
+          throw new Error('Form submission failed');
         }
-    </style>
-</body>
-</html>
+      } catch (error) {
+        console.error('Error:', error);
+        errorMessage.style.display = 'block';
+        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        loadingSpinner.style.display = 'none';
+        submitBtn.childNodes[0].textContent = originalText;
+      }
+    });
+  </script>
+</MainLayout>
