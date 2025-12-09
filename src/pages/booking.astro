@@ -1,7 +1,7 @@
 
 ---
 // src/pages/booking.astro
-export const prerender = false;
+export const prerender = true;
 
 let message = null;
 let formData = {};
@@ -36,7 +36,7 @@ if (Astro.request.method === 'POST') {
       formData = {}; // Clear form on success
     } else {
       // Production database connection
-      const mysql = await import('mysql2/promise');
+      //const mysql = await import('mysql2/promise');
       
       const dbConfig = {
         host: 'localhost',
