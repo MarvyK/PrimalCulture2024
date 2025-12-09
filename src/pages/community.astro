@@ -1,16 +1,40 @@
 ---
 import MainLayout from "../layouts/Layout.astro";
 import "../css/styles.css";
+import "../css/community.css";
 import { Image } from "astro:assets";
-import spca1 from "../images/community/Primal-Culture-Team-in-SPCA-tees-Natasha-b-1.jpg";
+import spca1 from "../images/community/primalculturecrew.png";
 import glenbridge1 from "../images/community/GlenbridgeSpecialInk2025.jpg";
+
 ---
 
 <MainLayout title="Primal Culture Tattoo Studio - Community Outreach">
-  <div class="container">
+  <div class="container">    
     <div class="column">
       <div class="column-content left">
-        <h1>Community Outreach</h1>
+        <div class="left"><h1>Community Outreach</h1></div>
+        
+      </div>
+    </div>
+    </div>
+    <div class="container">
+      <div class="column2">
+        <div class="column-content">
+          <h2>Cape of Good Hope SPCA</h2>
+          <a href="https://capespca.co.za/?s=tats4tails" target="_blank" title="Tats4Tails">
+          <div class="">
+            <Image src={spca1} alt="Tattoos love me" class="rounded-box" />            
+          </div></a>
+          🐕‍🦺<a href="https://capespca.co.za/?s=tats4tails" target="_blank" class="white-link" title="Tats4Tails">Tats4Tails</a> 🐶 is a fundraising initiative by the <a href="https://capespca.co.za" target="_blank" title="Cape of Good Hope SPCA" class="white-link">Cape of Good Hope SPCA</a>, where tattoo artists volunteer their time and skills to create unique tattoos for a good cause. All proceeds from the tattoos go directly to supporting the SPCA's mission of rescuing and caring for animals 🐕in need. By getting a tattoo through this program, individuals not only receive a meaningful piece of art 🐩 but also contribute to the welfare of animals in their community.
+        
+        </div>
+      </div>
+      <div class="column2">
+
+      </div>
+      <div class="column2">3</div>
+    </div>
+<!--
         <div class="column">
         <div class="column-content">
         <h2>Cape of Good Hope SPCA</h2>
@@ -54,5 +78,5 @@ import glenbridge1 from "../images/community/GlenbridgeSpecialInk2025.jpg";
     </div>
     </div>
     </div>    
-  </div>
+  </div> -->
 </MainLayout>

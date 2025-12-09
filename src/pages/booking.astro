@@ -1,0 +1,253 @@
+
+---
+// src/pages/booking.astro
+export const prerender = false;
+
+let message = null;
+let formData = {};
+
+// Check if we're in development mode
+const isDev = import.meta.env.DEV;
+
+// Handle form submission
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData();
+    formData = Object.fromEntries(data.entries());
+    
+    console.log('Form submitted with data:', formData);
+    
+    // Validate required fields
+    const required = ['name', 'email', 'booking_date', 'service'];
+    const missing = required.filter(field => !formData[field]);
+    
+    if (missing.length > 0) {
+      message = {
+        type: 'error',
+        text: `Missing required fields: ${missing.join(', ')}`
+      };
+    } else if (isDev) {
+      // In development, just show success message without database
+      console.log('Development mode - simulating successful booking');
+      message = {
+        type: 'success',
+        text: 'Development mode: Form data received successfully! This will save to database when deployed.'
+      };
+      formData = {}; // Clear form on success
+    } else {
+      // Production database connection
+      const mysql = await import('mysql2/promise');
+      
+      const dbConfig = {
+        host: 'localhost',
+        user: 'primafev_admin',     // Replace with your cPanel database username
+        password: '0tAgZ-;8T#yMq4.R', // Replace with your cPanel database password
+        database: 'primafev_your_username_bookings' // Replace with your cPanel database name
+      };
+      
+      console.log('Production mode - attempting database connection...');
+      
+      const connection = await mysql.createConnection(dbConfig);
+      
+      console.log('Database connected, inserting booking...');
+      
+      // Insert booking
+      const [result] = await connection.execute(
+        `INSERT INTO bookings (name, email, phone, booking_date, booking_time, service, message, created_at) 
+         VALUES (?, ?, ?, ?, ?, ?, ?, NOW())`,
+        [
+          formData.name,
+          formData.email,
+          formData.phone || null,
+          formData.booking_date,
+          formData.booking_time || null,
+          formData.service,
+          formData.message || null
+        ]
+      );
+      
+      await connection.end();
+      
+      console.log('Booking inserted successfully with ID:', result.insertId);
+      
+      message = {
+        type: 'success',
+        text: 'Booking submitted successfully! We\'ll contact you soon.'
+      };
+      
+      formData = {}; // Clear form on success
+    }
+  } catch (error) {
+    console.error('Booking error:', error);
+    console.error('Error details:', error.message);
+    
+    if (isDev) {
+      message = {
+        type: 'error',
+        text: `Development error: ${error.message}`
+      };
+    } else {
+      message = {
+        type: 'error',
+        text: `Error: ${error.message}`
+      };
+    }
+  }
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Your Appointment</h1>
+        
+        {message && (
+            <div class={`message ${message.type}`}>
+                {message.text}
+            </div>
+        )}
+        
+        {isDev && (
+            <div class="dev-notice">
+                <strong>Development Mode:</strong> Form validation works, but database connection will only work when deployed to cPanel.
+            </div>
+        )}
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" value={formData.name || ''} required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" value={formData.email || ''} required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" value={formData.phone || ''}>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="booking_date">Date *</label>
+                    <input type="date" id="booking_date" name="booking_date" value={formData.booking_date || ''} required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="booking_time">Time</label>
+                    <input type="time" id="booking_time" name="booking_time" value={formData.booking_time || ''}>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Service *</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="consultation" {formData.service === 'consultation' && 'selected'}>Consultation</option>
+                    <option value="web-design" {formData.service === 'web-design' && 'selected'}>Web Design</option>
+                    <option value="maintenance" {formData.service === 'maintenance' && 'selected'}>Maintenance</option>
+                    <option value="seo" {formData.service === 'seo' && 'selected'}>SEO Services</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4">{formData.message || ''}</textarea>
+            </div>
+            
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #007cba;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005a87;
+        }
+
+        .message {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .dev-notice {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

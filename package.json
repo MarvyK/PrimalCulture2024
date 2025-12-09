@@ -10,8 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.4.3",
     "astro": "^5.5.3",
-    "sharp": "^0.33.5"
+    "mysql2": "^3.14.3",
+    "sharp": "^0.33.5",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "prettier": "^3.3.3",
