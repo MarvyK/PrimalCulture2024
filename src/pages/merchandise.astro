@@ -1,0 +1,25 @@
+---
+import MainLayout from "../layouts/Layout.astro";
+import "../css/styles.css";
+import videoSrc from "../images/videos/ThisIsMyBack.mp4";
+import { Image } from 'astro:assets';
+import PrimalCultureComingSoon from '../images/PrimalCultureComingSoon.jpg'
+import PrimalCultureComingSoon2 from '../images/PrimalCultureComingSooon.jpg'
+---
+
+<MainLayout title="Primal Culture Tattoo Studio - Get to know us">
+  <div class="container">
+    <div class="column">
+      <div class="column-content">
+        <h1>Merchandise - Coming soon!</h1>
+      </div>
+    </div>
+    <div class="column-content grid-item">
+      <Image src={PrimalCultureComingSoon} alt="" class="flip-image active" />
+      <Image src={PrimalCultureComingSoon2} alt="" class="flip-image" />
+    </div>
+  </div> 
+  <script src="../js/imageflip.js"></script>
+  
+  
+</MainLayout>

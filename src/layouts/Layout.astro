@@ -9,7 +9,7 @@ import samfordLogo from "../images/SamfordSolutions.png";
 import inkfinLogo from "../images/InkFin.png";
 import FooterNav from "../components/FooterNav.astro";
 
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -55,7 +55,7 @@ const baseUrl = import.meta.env.BASE_URL;
           <div class="map-content">
             <h3 class="secondary-color">Find Us in Diep River:</h3>
             <div>
-              Unit 3, Clarewood<br />
+              Clarewood<br />
               1 Annandale Road<br />
               Diep River <br />
               Cape Town <br />
